@@ -1,0 +1,23 @@
+<mat-card class="card geo-card">
+  <h3 class="geo-title">Geo Location (Country-wise Logins)</h3>
+
+  <table class="table geo-table" *ngIf="locations.length > 0">
+    <thead>
+      <tr>
+        <th class="col-country">Country</th>
+        <th class="col-count">Login Count</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let l of locations">
+        <td class="col-country">{{ l.country }}</td>
+        <td class="col-count">{{ l.count }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="locations.length === 0" class="muted">
+    No location data available
+  </p>
+</mat-card>

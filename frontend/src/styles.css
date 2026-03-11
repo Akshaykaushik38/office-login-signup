@@ -1,0 +1,305 @@
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+}
+
+
+.page-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #1f2937;
+}
+
+p {
+  color: #4b5563;
+}
+
+
+mat-card {
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+.card {
+  margin-bottom: 24px;
+  padding: 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14) !important;
+}
+
+
+
+.accent-green {
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+}
+
+.accent-blue {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+}
+
+.accent-purple {
+  background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+}
+
+.accent-orange {
+  background: linear-gradient(135deg, #fff7ed, #ffedd5);
+}
+
+
+
+canvas {
+  max-height: 280px !important;
+}
+
+
+
+.geo-wrapper {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.geo-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  font-weight: 600;
+  color: #374151;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.styled-table th {
+  padding: 14px 10px;
+  text-align: left;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #1f2937;
+  border-radius: 8px;
+}
+
+.styled-table td {
+  padding: 14px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+.role-select {
+  width: 140px;
+}
+
+.action-col {
+  width: 130px;
+  text-align: center;
+}
+
+
+
+button {
+  border-radius: 12px !important;
+  font-weight: 600;
+  padding: 6px 18px !important;
+}
+
+button[color="primary"] {
+  background: linear-gradient(135deg, #4f46e5, #6366f1) !important;
+  color: white !important;
+}
+
+button[color="warn"] {
+  background: linear-gradient(135deg, #dc2626, #ef4444) !important;
+  color: white !important;
+}
+
+
+
+.message-wrapper {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.message-left {
+  justify-content: flex-start;
+}
+
+.message-right {
+  justify-content: flex-end;
+}
+
+.message-card {
+  max-width: 65%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.message-left .message-card {
+  background: #f1f5f9;
+  border-top-left-radius: 4px;
+}
+
+.message-right .message-card {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  border-top-right-radius: 4px;
+}
+
+.message-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  opacity: 0.75;
+  margin-bottom: 6px;
+}
+
+.message-text {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.message-time {
+  text-align: right;
+  font-size: 11px;
+  opacity: 0.6;
+  margin-top: 6px;
+}
+
+
+
+.mat-mdc-snack-bar-container.notice-success-snackbar {
+  background: linear-gradient(135deg, #15803d, #22c55e) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: 14px;
+  padding: 14px 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  max-width: 420px;
+  text-align: center;
+}
+
+
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.cell {
+  padding: 14px;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 700;
+  background: #e0e7ff;
+}
+
+
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 10px;
+  }
+
+  .message-card {
+    max-width: 90%;
+  }
+}
+
+
+
+.geo-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.geo-wrapper th,
+.geo-wrapper td {
+  padding: 12px 10px;
+  text-align: left;
+}
+
+.geo-wrapper th:last-child,
+.geo-wrapper td:last-child {
+  text-align: right;   
+}
+
+
+.geo-wrapper > * > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-flex button {
+  margin-left: auto;
+}
+.header-flex button {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+
+.geo-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.geo-table th,
+.geo-table td {
+  padding: 12px 10px;
+  font-size: 14px;
+}
+
+
+.geo-table .col-country {
+  text-align: left;
+}
+
+
+.geo-table .col-count {
+  text-align: right;
+  font-weight: 600;
+}

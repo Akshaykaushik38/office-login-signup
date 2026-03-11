@@ -1,0 +1,40 @@
+<mat-card class="notice-card">
+
+    <h3>Create Notice</h3>
+    <p class="subtitle">
+      Send an announcement to selected users. 
+    </p>
+  
+    <!-- TARGET GROUP -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Target Group</mat-label>
+      <mat-select [(ngModel)]="receiverRole">
+        <mat-option value="All">All Users</mat-option>
+        <mat-option value="User">Users Only</mat-option>
+        <mat-option value="Admin">Admins Only</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <!-- MESSAGE -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Notice Message</mat-label>
+      <textarea
+        matInput
+        rows="4"
+        placeholder="Enter notice message"
+        [(ngModel)]="message">
+      </textarea>
+    </mat-form-field>
+  
+    <div class="action-row">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="createNotice()"
+        [disabled]="!message.trim()">
+        Post Notice
+      </button>
+    </div>
+  
+  </mat-card>
+  

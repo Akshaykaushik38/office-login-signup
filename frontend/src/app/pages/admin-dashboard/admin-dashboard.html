@@ -1,0 +1,136 @@
+<div *ngIf="isAdmin(); else noAccess" class="page-container">
+
+  <!-- HEADER -->
+  <mat-card class="header-card">
+    <div class="header-content header-flex">
+      <div>
+        <h1>Admin Dashboard</h1>
+        <p class="subtitle">System overview & management</p>
+      </div>
+      <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+    </div>
+  </mat-card>
+
+  <mat-tab-group class="dashboard-tabs" [preserveContent]="true"  (selectedIndexChange)="onTabChange($event)">
+
+    <!--  TAB A : ANALYTICS  -->
+    <mat-tab label=" Analytics">
+      <div class="dashboard-grid">
+
+        <mat-card class="card accent-green">
+          <h3>User Status</h3>
+          <app-user-status-chart></app-user-status-chart>
+        </mat-card>
+
+        <mat-card class="card accent-blue">
+          <h3>User Growth</h3>
+          <app-user-growth-chart></app-user-growth-chart>
+        </mat-card>
+
+        <mat-card class="card full accent-purple">
+          <h3>Login Activity</h3>
+          <app-login-activity-heatmap></app-login-activity-heatmap>
+        </mat-card>
+
+        <!-- GEO LOCATION -->
+        <mat-card class="card full accent-orange">
+          <mat-card class="card full accent-orange">
+            <app-user-location></app-user-location>
+          </mat-card>
+          
+        </mat-card>
+
+      </div>
+    </mat-tab>
+
+    <!--  TAB B : USER APPROVALS  -->
+    <mat-tab label=" User Approvals">
+      <mat-card class="card">
+
+        <h3>Pending User Approvals</h3>
+
+        <table class="styled-table" *ngIf="pendingUsers.length > 0">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Name</th>
+              <th>Role</th>
+              <th class="action-col">Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let user of pendingUsers">
+              <td>{{ user.email }}</td>
+              <td>{{ user.firstName }} {{ user.lastName }}</td>
+
+              <td>
+                <mat-form-field appearance="outline" class="role-select">
+                  <mat-select [(ngModel)]="user.selectedRole">
+                    <mat-option value="User">User</mat-option>
+                    <mat-option value="Admin">Admin</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+
+              <td class="action-col">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  (click)="approveUser(user)">
+                  Approve
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p *ngIf="pendingUsers.length === 0" class="muted">
+          No pending users
+        </p>
+
+      </mat-card>
+    </mat-tab>
+
+    <!--  TAB C : NOTICE BOARD  -->
+    <mat-tab label=" Notice Board">
+
+      <mat-card class="card">
+        <app-admin-notice></app-admin-notice>
+      </mat-card>
+
+      <div
+        *ngFor="let n of notices"
+        class="message-wrapper"
+        [ngClass]="{
+          'message-left': n.sender === 'User',
+          'message-right': n.sender === 'Admin'
+        }">
+
+        <mat-card class="message-card">
+          <div class="message-meta">
+            <span><strong>From:</strong> {{ n.sender }}</span>
+            <span><strong>To:</strong> Admin</span>
+          </div>
+
+          <div class="message-text">{{ n.message }}</div>
+
+          <div class="message-time">
+            {{ n.createdAt | date:'short' }}
+          </div>
+        </mat-card>
+      </div>
+
+      <p *ngIf="notices.length === 0" class="muted">
+        No notices available
+      </p>
+
+    </mat-tab>
+
+  </mat-tab-group>
+
+</div>
+
+<ng-template #noAccess>
+  <h3>Access Denied</h3>
+</ng-template>

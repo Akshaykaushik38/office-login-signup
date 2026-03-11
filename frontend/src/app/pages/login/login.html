@@ -1,0 +1,69 @@
+<mat-card class="login-card mat-elevation-z8">
+  <div class="header">
+    <h2>Login</h2>
+    <p class="subtitle">Welcome back! Please login</p>
+  </div>
+
+  <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <mat-icon matPrefix>email</mat-icon>
+      <input
+        matInput
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+        email
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <mat-icon matPrefix>lock</mat-icon>
+      <input
+        matInput
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </mat-form-field>
+
+    <p class="error" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </p>
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="full-width login-btn"
+      type="submit"
+    >
+      Login
+    </button>
+
+    <!-- ✅ FORCE LOGIN UI -->
+    <div *ngIf="alreadyLoggedIn" class="force-login-box">
+      <p class="warning-text">
+        You are already logged in on another device.
+      </p>
+      <button
+        mat-raised-button
+        color="warn"
+        class="full-width"
+        type="button"
+        (click)="forceLogin(loginForm)"
+      >
+        Force Login
+      </button>
+    </div>
+
+  </form>
+
+  <div class="footer">
+    <span>Don’t have an account?</span>
+    <a routerLink="/signup">Signup</a>
+  </div>
+</mat-card>

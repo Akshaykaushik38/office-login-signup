@@ -1,0 +1,48 @@
+.login-card {
+  width: 360px;
+  margin: 100px auto;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.icon {
+  font-size: 40px;
+  color: #3f51b5;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #666;
+  margin-top: -5px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.login-btn {
+  margin-top: 10px;
+  height: 45px;
+  font-size: 16px;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer a {
+  margin-left: 5px;
+  font-weight: 500;
+}

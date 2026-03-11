@@ -1,0 +1,17 @@
+<h3>User Growth (Monthly)</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Users</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let row of growthData">
+      <td>{{ row.month }}</td>
+      <td>{{ row.count }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,28 @@
+<div class="dashboard-summary">
+
+    <h3>User Status Overview</h3>
+  
+    <!-- Pie Chart -->
+    <div style="max-width: 400px; margin: 0 auto;">
+      <canvas id="userStatusPie"></canvas>
+    </div>
+  
+    <!-- Table -->
+    <table class="table" style="margin-top: 20px; width: 100%;">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Total Users</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let row of statusTable">
+          <td>{{ row.status }}</td>
+          <td>{{ row.count }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+  </div>
+  
